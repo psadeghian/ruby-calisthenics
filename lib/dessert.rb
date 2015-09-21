@@ -1,3 +1,8 @@
+# Pash Sadeghian
+# Dr. Verdicchio
+# HW2
+# 9/20/2015
+
 class Dessert
     attr_accessor :name, :calories
     
@@ -25,7 +30,7 @@ class JellyBean < Dessert
   end
     
   def delicious?
-      @flavor != "licorice"
+      @flavor != "licorice" 
   end
   
 end

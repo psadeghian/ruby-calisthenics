@@ -1,3 +1,8 @@
+# Pash Sadeghian
+# Dr. Verdicchio
+# HW2
+# 9/20/2015
+
 module FunWithStrings
   def palindrome?
     str = self.downcase.gsub(/[^a-z]/i, "")
@@ -6,10 +11,9 @@ module FunWithStrings
   end
   def count_words
     hash = {}
-    #return hash if self == ""
     arr = self.split(" ")
     arr.each do |word|
-      word = word.downcase.gsub(/[^a-z]/i, "")
+      word = word.downcase.gsub(/[^a-z]/i, "") # remove everything but alphabets
       if word != ""
         hash[word] ||= 0
         hash[word] += 1
@@ -18,14 +22,16 @@ module FunWithStrings
     return hash
   end
   def anagram_groups
-    word_arr = self.split(" ")
+    word_arr = self.split(" ") # create an array of words
     ana_groups = []
     ana_groups.push([""])
-    # I the empty string array to enable iteration
+    # the empty string array is added to enable iteration
+    # note: we cannot iterate over an empty array
     word_arr.each do |word|
-      include = false
+      include = false # we assume the word is not included in the ana_groups array
       ana_groups.each do |arr|
         if word.downcase.chars.sort == arr[0].downcase.chars.sort
+          # note: we compare the sorted lowercase characters
           arr.push(word)
           include = true
         end
@@ -35,7 +41,7 @@ module FunWithStrings
       end
     end
     ana_groups.delete_at(0)
-    # Here I delete [""]
+    # Here we delete the [""] which we created in the beginning
     return ana_groups
   end
 end
